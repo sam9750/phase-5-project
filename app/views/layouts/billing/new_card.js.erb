@@ -1,4 +1,4 @@
-var handler = StripeCheckout.configure({
+<%# var handler = StripeCheckout.configure({
     key: '<%= Rails.application.credentials.stripe[Rails.env.to_sym][:publishable_key] %>',
     //get a publishable key that we put in editor depending on environment: production or development
     locale: 'auto',
@@ -26,4 +26,4 @@ handler.open();
 
 window.addEventListener('popstate', function() {
     handler.close();
-});
+}); %>

@@ -1,4 +1,7 @@
-# Rails.application.routes.draw do
+Rails.application.routes.draw do
+  root to: 'store#index'
+  resources :charges
+
 #   get 'carts/show'
 #   get 'items/index'
 #   get 'items/new'
@@ -23,22 +26,24 @@
 
 # root 'items#index'
 
-get 'carts/:id' => "carts#show", as: "cart"
-delete 'carts/:id' => "carts#destroy"
+# get 'carts/:id' => "carts#show", as: "cart"
+# delete 'carts/:id' => "carts#destroy"
 
-post 'cart_items/:id/add' => "cart_items#add_quantity", as: "cart_item_add"
-post 'cart_items/:id/reduce' => "cart_items#reduce_quantity", as: "cart_item_reduce"
-post 'cart_items' => "cart_items#create"
-get 'cart_items/:id' => "cart_items#show", as: "cart_item"
-delete 'cart_items/:id' => "cart_items#destroy"
+# post 'cart_items/:id/add' => "cart_items#add_quantity", as: "cart_item_add"
+# post 'cart_items/:id/reduce' => "cart_items#reduce_quantity", as: "cart_item_reduce"
+# post 'cart_items' => "cart_items#create"
+# get 'cart_items/:id' => "cart_items#show", as: "cart_item"
+# delete 'cart_items/:id' => "cart_items#destroy"
 
-resources :items
-resources :orders
+# resources :items
+# resources :orders
 
-# Link from the item index page (erb tags)
-button_to "Add to cart", cart_items_path(:item_id => item.id)
+# # Link from the item index page (erb tags)
+# button_to "Add to cart", cart_items_path(:item_id => item.id)
 
-# Link from the Cart show (erb tags)
-link_to "Add (+1)", cart_item_add_path(:id => cart_item), method: :post
-link_to "Reduce (-1)", cart_item_reduce_path(:id => cart_item), method: :post
-link_to "Remove item", cart_item_path(cart_item), method: :delete
+# # Link from the Cart show (erb tags)
+# link_to "Add (+1)", cart_item_add_path(:id => cart_item), method: :post
+# link_to "Reduce (-1)", cart_item_reduce_path(:id => cart_item), method: :post
+# link_to "Remove item", cart_item_path(cart_item), method: :delete
+
+end
